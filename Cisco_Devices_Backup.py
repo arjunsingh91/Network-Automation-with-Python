@@ -35,7 +35,6 @@ now = datetime.datetime.now()
 today = str(now.year)+ '-' + str(now.month)+ '-' + str(now.day)
 
 
-device_type = 'cisco_ios'
 
 #def failed(device_name, exception) :
 #	with open('failed.txt') as f:
