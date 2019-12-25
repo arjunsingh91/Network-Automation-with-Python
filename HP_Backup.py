@@ -45,7 +45,7 @@ for device in devices:
 	try:
 
 		#connection = netmiko.ConnectHandler(**device)
-		connection = netmiko.ConnectHandler(ip=device, device_type=device_type,username='l0542367', password='Test@2019', global_delay_factor= 0)
+		connection = netmiko.ConnectHandler(ip=device, device_type=device_type,username='', password='', global_delay_factor= 0)
 					
 					#getting prompt for hostname 
 		prompt= connection.find_prompt()
@@ -53,7 +53,7 @@ for device in devices:
 		#hostname = prompt[:-1]
 					
 						
-		file = '/volumes/netscripts/Backup Script/All Backups/cisco_devices.txt'
+		file = 'file location'
 					
 		with open(file,'w') as backup:
 			
@@ -61,13 +61,13 @@ for device in devices:
 			
 		#connection.sendCommand('screen-length disable')
 		
-			#q = connection.sendCommand_expect('display current-configuration')
-			#connection.send_command('copy running-config startup-config',expect_string= r"#")
-			#print('Saving configuration')
-			#q = connection.sendCommand_expect('display current-configuration')
-			#backup.write(connection.send_command('save force', delay_factor=2))
-			#backup.write('\n\n'+ q +'\n\n')
-			#print('backup of '+ hostname + ' completed successfully')
+			q = connection.sendCommand_expect('display current-configuration')
+			connection.send_command('copy running-config startup-config',expect_string= r"#")
+			print('Saving configuration')
+			q = connection.sendCommand_expect('display current-configuration')
+			backup.write(connection.send_command('save force', delay_factor=2))
+			backup.write('\n\n'+ q +'\n\n')
+			print('backup of '+ hostname + ' completed successfully')
 					
 			#closing the connection
 		connection.disconnect()	
