@@ -58,7 +58,7 @@ for device in devices:
 					
 					#sending command 
 		
-		file = '/volumes/netscripts/Backup Script/All Backups/'+today +'-'+ hostname +'.txt'
+		file = 'file location /'+today +'-'+ hostname +'.txt'
 					
 		with open(file,'w') as backup:
 			
